@@ -49,12 +49,50 @@
                 text-shadow: 0 0 20px #fff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff, 0 0 60px #ff00ff, 0 0 70px #ff00ff, 0 0 80px #ff00ff;
             }
         }
+        .game-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .emoji {
+            font-size: 1.5em;
+            animation: bounce 1s infinite;
+        }
+        
+        .invader {
+            animation: float 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateX(-10px); }
+            50% { transform: translateX(10px); }
+            100% { transform: translateX(-10px); }
+        }
     </style>
 </head>
 <body>
     <h1>Games and Stuff by Vincent and Brandon</h1>
     <ul>
-        <li><a href="/pong/">Play Pong</a></li>
+        <li>
+            <div class="game-link">
+                <span class="emoji">🏓</span>
+                <a href="/pong/">Play Pong</a>
+                <span class="emoji">🎮</span>
+            </div>
+        </li>
+        <li>
+            <div class="game-link">
+                <span class="emoji invader">👾</span>
+                <a href="/math-invaders/">Math Invaders</a>
+                <span class="emoji invader">👾</span>
+            </div>
+        </li>
         <!-- Add more games here as you create them -->
     </ul>
 </body>
