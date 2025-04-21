@@ -3,97 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Games and Stuff by Vincent and Brandon</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>SchoolPlay Games</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Press Start 2P', cursive;
+            font-family: 'Poppins', sans-serif;
             text-align: center;
-            margin-top: 50px;
-            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            background: linear-gradient(135deg, #6e45e2, #2196f3);
             color: #fff;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
+            padding: 2rem;
         }
+
+        .logo-container {
+            margin: 2rem 0;
+            max-width: 350px;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: auto;
+        }
+
         h1 {
             color: #fff;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            animation: glow 1s ease-in-out infinite alternate;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
+
+        .creators {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.9);
         }
-        li {
-            margin: 10px 0;
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 800px;
+            padding: 1rem;
         }
-        a {
+
+        .game-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .game-card a {
             text-decoration: none;
-            color: #ffeb3b;
-            font-size: 1.5em;
-            transition: color 0.3s ease;
-        }
-        a:hover {
             color: #fff;
-            text-shadow: 0 0 10px #ffeb3b, 0 0 20px #ffeb3b, 0 0 30px #ffeb3b;
-        }
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff, 0 0 60px #ff00ff, 0 0 70px #ff00ff;
-            }
-            to {
-                text-shadow: 0 0 20px #fff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff, 0 0 60px #ff00ff, 0 0 70px #ff00ff, 0 0 80px #ff00ff;
-            }
-        }
-        .game-link {
+            font-size: 1.2rem;
+            font-weight: 600;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 15px;
+            gap: 1rem;
         }
-        
+
         .emoji {
-            font-size: 1.5em;
-            animation: bounce 1s infinite;
+            font-size: 2.5rem;
         }
-        
-        .invader {
-            animation: float 2s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        @keyframes float {
-            0% { transform: translateX(-10px); }
-            50% { transform: translateX(10px); }
-            100% { transform: translateX(-10px); }
+
+        @media (max-width: 600px) {
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Games and Stuff by Vincent and Brandon</h1>
-    <ul>
-        <li>
-            <div class="game-link">
+    <div class="logo-container">
+        <img src="logo.png" alt="SchoolPlay Games Logo">
+    </div>
+    <p class="creators">Created by Vincent and Brandon</p>
+    
+    <div class="games-grid">
+        <div class="game-card">
+            <a href="/pong/">
                 <span class="emoji">🏓</span>
-                <a href="/pong/">Play Pong</a>
-                <span class="emoji">🎮</span>
-            </div>
-        </li>
-        <li>
-            <div class="game-link">
-                <span class="emoji invader">👾</span>
-                <a href="/math-invaders/">Math Invaders</a>
-                <span class="emoji invader">👾</span>
-            </div>
-        </li>
-        <!-- Add more games here as you create them -->
-    </ul>
+                <span>Pong</span>
+            </a>
+        </div>
+        <div class="game-card">
+            <a href="/math-invaders/">
+                <span class="emoji">👾</span>
+                <span>Math Invaders</span>
+            </a>
+        </div>
+    </div>
 </body>
 </html>
