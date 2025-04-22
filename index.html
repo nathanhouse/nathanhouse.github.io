@@ -46,6 +46,39 @@
             font-size: 1.1rem;
             margin-bottom: 3rem;
             color: rgba(255, 255, 255, 0.9);
+            position: relative;
+        }
+
+        .creator-name {
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .creator-name:nth-child(2) {
+            animation-delay: 1.5s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                color: #fff;
+            }
+            25% {
+                transform: translateY(-5px) rotate(2deg);
+                color: #ffd700;
+            }
+            50% {
+                transform: translateY(0) rotate(0deg);
+                color: #fff;
+            }
+            75% {
+                transform: translateY(5px) rotate(-2deg);
+                color: #00ff00;
+            }
+            100% {
+                transform: translateY(0) rotate(0deg);
+                color: #fff;
+            }
         }
 
         .games-grid {
@@ -55,6 +88,7 @@
             width: 100%;
             max-width: 800px;
             padding: 1rem;
+            margin-bottom: 2rem;
         }
 
         .game-card {
@@ -86,9 +120,24 @@
             font-size: 2.5rem;
         }
 
+        .info-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            backdrop-filter: blur(5px);
+            max-width: 800px;
+            margin-top: 2rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
         @media (max-width: 600px) {
             .games-grid {
                 grid-template-columns: 1fr;
+            }
+            .info-section {
+                margin: 2rem 1rem;
+                padding: 1rem;
             }
         }
     </style>
@@ -97,7 +146,7 @@
     <div class="logo-container">
         <img src="logo.png" alt="SchoolPlay Games Logo">
     </div>
-    <p class="creators">Created by Vincent and Brandon</p>
+    <p class="creators">Created by <span class="creator-name">Vincent</span> and <span class="creator-name">Brandon</span></p>
     
     <div class="games-grid">
         <div class="game-card">
@@ -112,6 +161,10 @@
                 <span>Math Invaders</span>
             </a>
         </div>
+    </div>
+
+    <div class="info-section">
+        These games were developed using Vibe Coding, Cursor, HTML, CSS3, and vanilla JavaScript—without any frameworks. They are currently in beta, so you may encounter some bugs. We're working on integrating an online scoreboard, which will be powered by Firebase as the backend database.
     </div>
 </body>
 </html>
