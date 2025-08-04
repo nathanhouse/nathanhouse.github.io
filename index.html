@@ -263,11 +263,12 @@
 
     <div class="info-section">
         <h3 style="margin-bottom: 1rem; font-size: 1.3rem;">🎮 Minecraft Server</h3>
-        <p style="margin-bottom: 1rem;">Join our Minecraft server! Copy the server address below and paste it in your Minecraft client:</p>
-        <div style="background: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: monospace; font-size: 1.1rem; cursor: pointer; user-select: all;" onclick="navigator.clipboard.writeText('minecraft.schoolplay.games')">
+        <p style="margin-bottom: 1rem;">Join our Minecraft server! Copy the server address below and paste it in your Minecraft client. Works on both Java and Bedrock versions:</p>
+        <div style="background: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: monospace; font-size: 1.1rem; cursor: pointer; user-select: all;" onclick="copyServerAddress()">
             minecraft.schoolplay.games
         </div>
         <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">Click to copy</p>
+        <div id="copyNotification" style="position: fixed; top: 20px; right: 20px; background: rgba(0, 255, 0, 0.9); color: white; padding: 1rem; border-radius: 8px; display: none; z-index: 1001; font-weight: 600;">✓ Copied to clipboard!</div>
     </div>
 
     <div class="info-section">
@@ -321,6 +322,18 @@
                 closeModal();
             }
         });
+
+        function copyServerAddress() {
+            navigator.clipboard.writeText('minecraft.schoolplay.games').then(() => {
+                const notification = document.getElementById('copyNotification');
+                notification.style.display = 'block';
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
     </script>
 </body>
 </html>
